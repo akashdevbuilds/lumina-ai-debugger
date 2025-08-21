@@ -1,0 +1,8 @@
+astroid
+radon
+pylint
+pytest
+docker
+requests
+jsonschema
+flask
