@@ -6,7 +6,7 @@ logging.basicConfig(level=logging.INFO , format='%(levelname)s: %(message)s')
 
 def analyse_code(code_str):
     """
-    Parse the given code string anf log all function definitions.
+    Parse the given code string and log all function definitions.
     """
     tree = ast.parse(code_str)
     for node in ast.walk(tree):
