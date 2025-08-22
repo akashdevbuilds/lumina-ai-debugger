@@ -2,13 +2,11 @@
 
 Learn to debug smarter with Lumina ,an educational tool combining enhanced static and dynamic code analysis with AI-powered explanations to help developers and learners understand why bugs happen.
 
----
 
 ## 🚀 Project Overview
 
 Lumina is an early stage prototype designed for students and developers interested in mastering debugging fundamentals. By combining static code analysis, runtime dynamic tracing, and AI driven explanations, Lumina goes beyond surface level fixes to provide deep educational insights.
 
----
 
 ## 🔍 Key Features
 
@@ -40,8 +38,6 @@ Lumina is an early stage prototype designed for students and developers interest
 - Verbose logging option for deeper insights  
 - API key input for future AI integration  
 
----
-
 ## 📦 Project Structure
 
 ```
@@ -66,8 +62,6 @@ lumina-ai-debugger/
 ├── tests/                       # (Future automated tests)
 └── docs/                        # (Future documentation)
 ```
-
----
 
 ## 🛠️ Getting Started
 
@@ -173,7 +167,6 @@ _Sample JSON output:_
 }
 ```
 
----
 
 ## 🛣️ Roadmap & Next Steps
 
@@ -183,7 +176,6 @@ _Sample JSON output:_
 - **Comprehensive automated testing** and CI/CD setup  
 - **Performance and security enhancements** for sandboxed execution  
 
----
 
 ## 👥 Contributing & Feedback
 
@@ -194,14 +186,11 @@ This is an active student project. Contributions, suggestions, and bug reports a
 3. Commit your changes  
 4. Open a Pull Request with detailed description  
 
----
 
 ## 📜 License
 
 MIT License
 
----
 
 Thank you for exploring Lumina! Learn smarter debugging — understand the *why* behind bugs, not just the fix.
 
----
