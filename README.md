@@ -1,109 +1,208 @@
-# 🎯 Lumina: AI-Powered Bug Explainer (Day 1 Prototype) (Student Personal Project)
+# Lumina: AI-Powered Bug Explainer
 
-Learn to debug better with AI-powered explanations (early-stage prototype)
+Learn to debug smarter with Lumina — an educational tool combining enhanced static and dynamic code analysis with AI-powered explanations to help developers and learners understand why bugs happen.
 
-## 🚧 Current Project Status (Day 1)
+---
 
-This is an early prototype focusing on:
+## 🚀 Project Overview
 
-- **Enhanced Static Analysis** Advanced AST parsing with comprehensive bug pattern detection, complexity analysis, and code quality metrics
-- Dynamic Analysis Prototype Docker-based sandbox executing code snippets safely and capturing runtime exceptions  
-- Command Line Interface (CLI Simple prototype to run analysis on sample buggy code  
-- Educational Vision Designing for learners to grasp debugging concepts through layered analysis  
+Lumina is an early-stage prototype designed for students and developers interested in mastering debugging fundamentals. By combining static code analysis, runtime dynamic tracing, and AI-driven explanations, Lumina goes beyond surface-level fixes to provide deep educational insights.
 
-Note AI-powered explanations and advanced analysis features are still under development.
+---
 
-## 🏗️ System Architecture (Planned)
+## 🔍 Key Features
+
+### 1. Enhanced Static Analysis  
+- Advanced AST parsing to detect common bug patterns including:  
+  - Potential `IndexError` from out-of-bounds indexing  
+  - Security risks like `eval()` usage  
+  - Poor exception handling (e.g., bare `except:` clauses)  
+  - Debugging leftovers like empty `print()` statements  
+  - Missing function docstrings and overly complex functions  
+- Complexity metrics (cyclomatic complexity) to identify risky code parts  
+- Variable usage tracker to highlight potentially unused variables  
+- Structured JSON and emoji-rich console output formats  
+
+### 2. Dynamic Analysis with Execution Tracing  
+- Safe sandboxed code execution capturing runtime errors  
+- Detailed line-by-line tracing with local variable states and call stack depth  
+- Execution performance metrics (total time, lines executed, functions called)  
+- Rich context for runtime exceptions to aid understanding  
+
+### 3. AI Explainer Module  
+- Educational feedback generated from static and dynamic results  
+- Helps users learn why issues happen and how to fix/prevent them  
+- Ready to be extended with real AI model APIs (e.g., OpenAI, Gemini)  
+
+### 4. Professional Command-Line Interface (CLI)  
+- Analyze individual Python files or run demos on curated educational bugs  
+- Supports JSON or human-readable text outputs  
+- Verbose logging option for deeper insights  
+- API key input for future AI integration  
+
+---
+
+## 📦 Project Structure
 
 ```
-Lumina Analysis Pipeline:
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│  Static Analysis │ -> │ Dynamic Tracing  │ -> │ AI Explanation  │
-│  (AST parsing)  │    │ (Sandbox runtime)│    │ (Planned)       │
-└─────────────────┘    └──────────────────┘    └─────────────────┘
+lumina-ai-debugger/
+├── README.md
+├── LICENSE
+├── .gitignore
+├── requirements.txt
+├── src/
+│   ├── static_analysis.py        # Enhanced static analysis module
+│   ├── dynamic_analysis.py       # Dynamic execution tracing module
+│   ├── ai_explainer.py           # AI explanation engine
+│   └── main.py                   # CLI interface integrating modules
+├── scripts/
+│   └── demo_enhanced_analysis.py # Demo script for static analysis
+├── sample_bugs/                  # Educational bug examples
+│   ├── index_error.py
+│   ├── logic_error.py
+│   ├── syntax_error.py
+│   ├── type_error.py
+│   └── complexity_issue.py
+├── tests/                       # (Future automated tests)
+└── docs/                        # (Future documentation)
 ```
 
-## 🔍 Enhanced Static Analysis Features
+---
 
-The enhanced static analysis system provides comprehensive code analysis including:
+## 🛠️ Getting Started
 
-### Bug Pattern Detection
-- **IndexError Detection:** Identifies potential array bound violations (e.g., `range(len(list) + 1)`)
-- **Security Risks:** Detects dangerous `eval()` usage
-- **Exception Handling:** Finds bare `except:` clauses that are too broad
-- **Debug Artifacts:** Identifies leftover debug code like empty `print()` statements
-- **Code Quality:** Detects missing function docstrings and overly long functions
+### Setup
 
-### Code Analysis Features
-- **Complexity Analysis:** Cyclomatic complexity calculation with risk classification
-- **Variable Tracking:** Identifies potentially unused variables
-- **Function Analysis:** Detailed function metrics and documentation validation
-- **Code Metrics:** Lines of code, comments, and structural analysis
-- **Severity Classification:** Issues categorized as Critical, High, Medium, or Low
-
-### Output Formats
-- **Visual Console Output:** Emoji-enhanced reports for human reading
-- **Structured JSON:** Machine-readable format for tool integration
-- **Backward Compatibility:** Maintains compatibility with existing analysis functions
-
-## 🏃 How to Get Started
-
-```bash
-# Clone and set up virtual environment
-git clone https://github.com/akashdevbuilds/lumina-ai-debugger
+```
+git clone https://github.com/akashdevbuilds/Lumina-ai-debugger
 cd lumina-ai-debugger
 python -m venv venv
-source venv/bin/activate  # Windows: .\venv\Scripts\activate
+source venv/bin/activate      # Windows: .\venv\Scripts\activate
 pip install -r requirements.txt
-
-# Run enhanced static analysis on sample buggy code
-python src/static_analysis.py
-
-# Run the comprehensive analysis demo
-python demo_enhanced_analysis.py
-
-# Run dynamic execution sandbox prototype
-python src/dynamic_analysis.py
 ```
 
+### Available Commands
 
-## 🎯 Target Audience
+Run commands from the project root, using the CLI interface in `src/main.py` as a module:
 
-Ideal for:
+```
+python -m src.main --help
+```
 
-- Students and developers interested in debugging fundamentals  
-- Learners who want to understand "why" bugs happen  
-- Anyone curious about combining static and dynamic analysis  
+Displays:
 
-Not yet suitable for:  
-- Production debugging workflows  
-- Complex multi-file projects  
-- Complete AI-powered explanations (coming soon!)  
+```
+usage: main.py [-h] [--analyze ANALYZE] [--demo] [--json] [--verbose] [--api-key API_KEY]
 
-## 🔄 Roadmap & Next Steps
+Lumina: AI Debugger CLI
 
-Planned enhancements include:
+optional arguments:
+  -h, --help          show this help message and exit
+  --analyze ANALYZE   Path to Python file to analyze
+  --demo              Run demo analysis on sample bug files
+  --json              Output results in JSON format
+  --verbose           Enable verbose logging
+  --api-key API_KEY   API key for future AI integration
+```
 
-- ✅ **COMPLETED:** Enhanced static analysis with advanced bug detection patterns
-- Building an AI explainer module to generate educational feedback  
-- Integrating execution tracing with richer runtime data  
-- Adding a clean CLI with multi-stage analysis flow  
-- Developing a web UI for interactive debugging  
-- Real AI model integration (OpenAI,Gemini)  
-- Comprehensive testing and documentation
+### Examples
 
-💡 Why Lumina Is Different!
+#### Run demo analysis on sample bugs:
 
-Lumina is an early-stage prototype focused on helping learners understand why bugs occur rather than just providing quick fixes. It uses a multi-stage approach that combines basic static analysis with sandboxed code execution to give insight into code behavior, though these features are still being developed. Designed with beginner developers and students in mind, Lumina aims to support learning debugging fundamentals by offering educational explanations and guidance as the project evolves. This student project explores how AI can assist in debugging in a more insightful and educational way, with many planned features yet to be implemented.
+```
+python -m src.main --demo
+```
 
-## 🤝 Contributing & Feedback
+_Output (partial):_
 
-This is a personal student project in active development. Contributions, suggestions, and feedback are warmly welcomed!
+```
+=== Demo: syntax_error.py ===
+Syntax valid: False
+Syntax Error on line 35: invalid decimal literal
+
+=== Demo: type_error.py ===
+Syntax valid: True
+Issues found: 0
+Execution success: True
+AI Explanation: No major issues detected in your code.
+```
+
+#### Analyze a specific Python file with JSON output:
+
+```
+python -m src.main --analyze sample_bugs/index_error.py --json
+```
+
+_Sample JSON output:_
+
+```
+{
+  "static_analysis": {
+    "syntax_valid": true,
+    "issues": [
+      {
+        "type": "missing_docstring",
+        "severity": "medium",
+        "line": 2,
+        "message": "Function \"divide\" lacks documentation",
+        "pattern": "undocumented_function"
+      }
+    ],
+    "functions": [
+      {
+        "name": "divide",
+        "line": 2,
+        "args": 2,
+        "has_docstring": false
+      }
+    ],
+    "metrics": {
+      "total_lines": 9,
+      "function_count": 1,
+      "issues_found": 1
+    }
+  },
+  "dynamic_analysis": {
+    "success": true,
+    "trace": [...],
+    "exec_time": 0.007
+  },
+  "ai_explanation": {
+    "simple_explanation": "Your code has minor documentation issues. No runtime errors detected."
+  }
+}
+```
+
+---
+
+## 🛣️ Roadmap & Next Steps
+
+- **Task 12: Documentation polish** (current/future)  
+- **Multi-file project support** for advanced analysis  
+- **Real AI model integration** with API keys (OpenAI, Gemini)  
+- **Web UI development** for interactive debugging  
+- **Comprehensive automated testing** and CI/CD setup  
+- **Performance and security enhancements** for sandboxed execution  
+
+---
+
+## 👥 Contributing & Feedback
+
+This is an active student project. Contributions, suggestions, and bug reports are welcome!
 
 1. Fork the repo  
-2. Create a branch (`git checkout -b feature/my-feature`)  
-3. Commit and push your changes  
-4. Open a Pull Request with description  
+2. Create a feature branch (`git checkout -b feature/my-feature`)  
+3. Commit your changes  
+4. Open a Pull Request with detailed description  
 
-## 📄 License
+---
+
+## 📜 License
+
 MIT License
+
+---
+
+Thank you for exploring Lumina! Learn smarter debugging — understand the *why* behind bugs, not just the fix.
+
+---
