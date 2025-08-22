@@ -3,6 +3,9 @@
 Demo script showcasing the enhanced static analysis capabilities
 """
 
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from src.static_analysis import enhanced_analyze_code
 import json
 
