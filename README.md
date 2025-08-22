@@ -1,12 +1,12 @@
 # Lumina: AI-Powered Bug Explainer
 
-Learn to debug smarter with Lumina — an educational tool combining enhanced static and dynamic code analysis with AI-powered explanations to help developers and learners understand why bugs happen.
+Learn to debug smarter with Lumina ,an educational tool combining enhanced static and dynamic code analysis with AI-powered explanations to help developers and learners understand why bugs happen.
 
 ---
 
 ## 🚀 Project Overview
 
-Lumina is an early-stage prototype designed for students and developers interested in mastering debugging fundamentals. By combining static code analysis, runtime dynamic tracing, and AI-driven explanations, Lumina goes beyond surface-level fixes to provide deep educational insights.
+Lumina is an early stage prototype designed for students and developers interested in mastering debugging fundamentals. By combining static code analysis, runtime dynamic tracing, and AI driven explanations, Lumina goes beyond surface level fixes to provide deep educational insights.
 
 ---
 
@@ -25,7 +25,7 @@ Lumina is an early-stage prototype designed for students and developers interest
 
 ### 2. Dynamic Analysis with Execution Tracing  
 - Safe sandboxed code execution capturing runtime errors  
-- Detailed line-by-line tracing with local variable states and call stack depth  
+- Detailed line by line tracing with local variable states and call stack depth  
 - Execution performance metrics (total time, lines executed, functions called)  
 - Rich context for runtime exceptions to aid understanding  
 
@@ -36,7 +36,7 @@ Lumina is an early-stage prototype designed for students and developers interest
 
 ### 4. Professional Command-Line Interface (CLI)  
 - Analyze individual Python files or run demos on curated educational bugs  
-- Supports JSON or human-readable text outputs  
+- Supports JSON or human readable text outputs  
 - Verbose logging option for deeper insights  
 - API key input for future AI integration  
 
@@ -178,7 +178,7 @@ _Sample JSON output:_
 ## 🛣️ Roadmap & Next Steps
 
 - **Task 12: Documentation polish** (current/future)  
-- **Multi-file project support** for advanced analysis  
+- **Multifile project support** for advanced analysis  
 - **Real AI model integration** with API keys (OpenAI, Gemini)  
 - **Web UI development** for interactive debugging  
 - **Comprehensive automated testing** and CI/CD setup  
