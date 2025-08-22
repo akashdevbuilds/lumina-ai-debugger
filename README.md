@@ -177,7 +177,6 @@ _Sample JSON output:_
 
 ## 🛣️ Roadmap & Next Steps
 
-- **Task 12: Documentation polish** (current/future)  
 - **Multifile project support** for advanced analysis  
 - **Real AI model integration** with API keys (OpenAI, Gemini)  
 - **Web UI development** for interactive debugging  
