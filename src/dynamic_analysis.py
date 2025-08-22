@@ -302,11 +302,106 @@ class DynamicAnalyzer:
         return flow
 
 
+class SafeCodeExecutor:
+    """
+    Simplified safe code execution wrapper with tracing capabilities.
+    
+    Provides a more lightweight interface for basic code execution with tracing,
+    complementing the comprehensive DynamicAnalyzer for simpler use cases.
+    """
+    
+    def __init__(self, timeout: float = 5.0, max_output: int = 10_000):
+        self.timeout = timeout
+        self.max_output = max_output
+
+    def execute(self, code_str: str) -> Dict[str, Any]:
+        """
+        Execute code with basic tracing and safety measures.
+        
+        Args:
+            code_str: Python code to execute
+            
+        Returns:
+            Dictionary with execution results and trace data
+        """
+        tracer = ExecutionTracer()
+        stdout_buf = io.StringIO()
+        stderr_buf = io.StringIO()
+        
+        result: Dict[str, Any] = {
+            "success": False,
+            "stdout": "",
+            "stderr": "",
+            "trace": [],
+            "error": None,
+            "exec_time": 0.0,
+            "metrics": {}
+        }
+
+        start = time.time()
+        tracer.start_time = start
+
+        try:
+            # Setup tracing
+            sys.settrace(tracer.trace_calls)
+            
+            # Execute with output capture
+            with redirect_stdout(stdout_buf), redirect_stderr(stderr_buf):
+                exec(code_str, {"__builtins__": __builtins__})
+                
+            result["success"] = True
+            
+        except Exception as e:
+            # Capture error information
+            tb = traceback.format_exc()
+            result["error"] = {
+                "type": type(e).__name__,
+                "message": str(e),
+                "traceback": tb
+            }
+            
+        finally:
+            # Clean up tracing
+            sys.settrace(None)
+            end = time.time()
+
+        # Collect outputs and metrics
+        result["stdout"] = stdout_buf.getvalue()[:self.max_output]
+        result["stderr"] = stderr_buf.getvalue()[:self.max_output]
+        result["trace"] = tracer.trace_data
+        result["exec_time"] = end - start
+        
+        # Generate execution metrics
+        result["metrics"] = {
+            "trace_entries": len(tracer.trace_data),
+            "lines_executed": sum(1 for e in tracer.trace_data if e["event"] == "line"),
+            "functions_called": len({e["function"] for e in tracer.trace_data if e["event"] == "call"}),
+            "max_stack_depth": max((e["stack_depth"] for e in tracer.trace_data), default=0),
+            "variables_tracked": len(tracer.variable_history)
+        }
+
+        return result
+
+
 def run_dynamic_analysis(code: str, inputs: Optional[List[str]] = None, 
                         timeout: float = 5.0) -> ExecutionResult:
-    """Convenience function for running dynamic analysis"""
+    """Convenience function for running comprehensive dynamic analysis"""
     analyzer = DynamicAnalyzer(timeout=timeout)
     return analyzer.analyze_code(code, inputs)
+
+
+def run_code_with_tracing(code_str: str) -> Dict[str, Any]:
+    """
+    Module entry point for simple code execution with tracing.
+    
+    Args:
+        code_str: Python code to execute
+        
+    Returns:
+        Dictionary with execution results and trace data
+    """
+    executor = SafeCodeExecutor()
+    return executor.execute(code_str)
 
 
 # Demo and testing functions
@@ -390,5 +485,42 @@ print(f"10 / 0 = {result2}")
                     print(f"  ... and {len(flow) - 10} more steps")
 
 
+def demo_safe_executor():
+    """Demonstrate the SafeCodeExecutor wrapper"""
+    print("\n🔧 SafeCodeExecutor Demo")
+    print("=" * 30)
+    
+    # Quick demo sample as requested
+    sample = '''
+for i in range(3):
+    print("Value:", i)
+print(unknown_var)  # NameError
+'''
+    
+    print("📝 Testing sample code with SafeCodeExecutor:")
+    print("Code:")
+    print(sample)
+    
+    res = run_code_with_tracing(sample)
+    
+    print("\n📊 Results:")
+    print(f"✅ Success: {res['success']}")
+    print(f"⏱️  Exec time: {res['exec_time']:.4f}s")
+    print(f"📈 Trace entries: {len(res['trace'])}")
+    print(f"📤 Stdout: {repr(res['stdout'])}")
+    
+    if not res['success']:
+        error = res['error']
+        print(f"❌ Error: {error['type']}: {error['message']}")
+    
+    print(f"\n📊 Detailed Metrics:")
+    for key, value in res['metrics'].items():
+        print(f"  • {key}: {value}")
+
+
 if __name__ == "__main__":
+    # Demo comprehensive dynamic analysis
     demo_dynamic_analysis()
+    
+    # Demo simple safe executor
+    demo_safe_executor()
