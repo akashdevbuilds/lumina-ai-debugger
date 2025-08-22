@@ -30,19 +30,32 @@ class AIExplainer:
             print("🔄 Real AI integration - coming soon!")
     
     def explain_analysis_results(self, static_results: Dict[str, Any], 
-                               dynamic_results: Optional[Dict[str, Any]] = None,
+                               dynamic_results: Optional[Any] = None,
                                code: str = "") -> Dict[str, Any]:
         """
         Generate educational explanation for analysis results.
         
         Args:
-            static_results: Results from static analysis
-            dynamic_results: Results from dynamic execution (if available)
+            static_results: Results from static analysis (dict)
+            dynamic_results: Results from dynamic execution (ExecutionResult or dict)
             code: Original code being analyzed
             
         Returns:
             Dictionary with explanations, learning tips, and suggested fixes
         """
+        
+        # Convert ExecutionResult dataclass to dict if needed
+        if dynamic_results and hasattr(dynamic_results, '__dataclass_fields__'):
+            # Convert dataclass to dict
+            dynamic_dict = {
+                'success': dynamic_results.success,
+                'error_type': dynamic_results.error_type,
+                'error_message': dynamic_results.error_message,
+                'execution_time': dynamic_results.execution_time,
+                'output': dynamic_results.output,
+                'traceback_info': dynamic_results.traceback_info
+            }
+            dynamic_results = dynamic_dict
         
         # Handle syntax errors first
         if not static_results.get('syntax_valid', True):
