@@ -6,7 +6,7 @@ Learn to debug better with AI-powered explanations (early-stage prototype)
 
 This is an early prototype focusing on:
 
-- Static Analysis Prototype Basic AST parsing to detect functions and simple bug patterns  
+- **Enhanced Static Analysis** Advanced AST parsing with comprehensive bug pattern detection, complexity analysis, and code quality metrics
 - Dynamic Analysis Prototype Docker-based sandbox executing code snippets safely and capturing runtime exceptions  
 - Command Line Interface (CLI Simple prototype to run analysis on sample buggy code  
 - Educational Vision Designing for learners to grasp debugging concepts through layered analysis  
@@ -23,8 +23,30 @@ Lumina Analysis Pipeline:
 └─────────────────┘    └──────────────────┘    └─────────────────┘
 ```
 
+## 🔍 Enhanced Static Analysis Features
 
-## 🏃 How to Get Started 
+The enhanced static analysis system provides comprehensive code analysis including:
+
+### Bug Pattern Detection
+- **IndexError Detection:** Identifies potential array bound violations (e.g., `range(len(list) + 1)`)
+- **Security Risks:** Detects dangerous `eval()` usage
+- **Exception Handling:** Finds bare `except:` clauses that are too broad
+- **Debug Artifacts:** Identifies leftover debug code like empty `print()` statements
+- **Code Quality:** Detects missing function docstrings and overly long functions
+
+### Code Analysis Features
+- **Complexity Analysis:** Cyclomatic complexity calculation with risk classification
+- **Variable Tracking:** Identifies potentially unused variables
+- **Function Analysis:** Detailed function metrics and documentation validation
+- **Code Metrics:** Lines of code, comments, and structural analysis
+- **Severity Classification:** Issues categorized as Critical, High, Medium, or Low
+
+### Output Formats
+- **Visual Console Output:** Emoji-enhanced reports for human reading
+- **Structured JSON:** Machine-readable format for tool integration
+- **Backward Compatibility:** Maintains compatibility with existing analysis functions
+
+## 🏃 How to Get Started
 
 ```bash
 # Clone and set up virtual environment
@@ -34,8 +56,11 @@ python -m venv venv
 source venv/bin/activate  # Windows: .\venv\Scripts\activate
 pip install -r requirements.txt
 
-# Run static analysis prototype on sample code
+# Run enhanced static analysis on sample buggy code
 python src/static_analysis.py
+
+# Run the comprehensive analysis demo
+python demo_enhanced_analysis.py
 
 # Run dynamic execution sandbox prototype
 python src/dynamic_analysis.py
@@ -59,7 +84,7 @@ Not yet suitable for:
 
 Planned enhancements include:
 
-- Expanding static analysis with more bug detection patterns  
+- ✅ **COMPLETED:** Enhanced static analysis with advanced bug detection patterns
 - Building an AI explainer module to generate educational feedback  
 - Integrating execution tracing with richer runtime data  
 - Adding a clean CLI with multi-stage analysis flow  
