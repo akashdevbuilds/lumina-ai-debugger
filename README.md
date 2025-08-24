@@ -1,42 +1,51 @@
 # Lumina: AI Powered Bug Explainer
 
-Learn to debug smarter with Lumina ,an educational tool combining enhanced static and dynamic code analysis with AI powered explanations to help developers and learners understand why bugs happen.
-
+Learn to debug smarter with Lumina, an educational tool combining enhanced static and dynamic code analysis with AI powered explanations to help developers and learners understand why bugs happen.
 
 ## 🚀 Project Overview
 
-Lumina is an early stage prototype designed for students and developers interested in mastering debugging fundamentals. By combining static code analysis, runtime dynamic tracing, and AI driven explanations, Lumina goes beyond surface level fixes to provide deep educational insights.
-
+Lumina is an early‑stage prototype for students and developers who want to master debugging fundamentals. By combining static code analysis, runtime tracing, and AI driven explanations, Lumina goes beyond surface level fixes to provide clear, educational insights.
 
 ## 🔍 Key Features
 
-### 1. Enhanced Static Analysis  
-- Advanced AST parsing to detect common bug patterns including:  
-  - Potential `IndexError` from out-of-bounds indexing  
-  - Security risks like `eval()` usage  
-  - Poor exception handling (e.g., bare `except:` clauses)  
-  - Debugging leftovers like empty `print()` statements  
-  - Missing function docstrings and overly complex functions  
-- Complexity metrics (cyclomatic complexity) to identify risky code parts  
-- Variable usage tracker to highlight potentially unused variables  
-- Structured JSON and emoji-rich console output formats  
+### 1) Enhanced Static Analysis
 
-### 2. Dynamic Analysis with Execution Tracing  
-- Safe sandboxed code execution capturing runtime errors  
-- Detailed line by line tracing with local variable states and call stack depth  
-- Execution performance metrics (total time, lines executed, functions called)  
-- Rich context for runtime exceptions to aid understanding  
+* Advanced AST parsing for common bug patterns:
 
-### 3. AI Explainer Module  
-- Educational feedback generated from static and dynamic results  
-- Helps users learn why issues happen and how to fix/prevent them  
-- Ready to be extended with real AI model APIs (e.g., OpenAI, Gemini)  
+  * Potential `IndexError` from out‑of‑bounds indexing
+  * Security risks like `eval()` usage
+  * Poor exception handling (e.g., bare `except:`)
+  * Debugging leftovers like empty `print()` statements
+  * Missing function docstrings / overly complex functions
+* Complexity metrics (cyclomatic complexity) to flag risky code
+* Variable usage tracker for potentially unused variables
+* Outputs in structured JSON or emoji‑rich console text
 
-### 4. Professional Command-Line Interface (CLI)  
-- Analyze individual Python files or run demos on curated educational bugs  
-- Supports JSON or human readable text outputs  
-- Verbose logging option for deeper insights  
-- API key input for future AI integration  
+### 2) Dynamic Analysis with Execution Tracing
+
+* Safe, sandboxed code execution that captures runtime errors
+* Line by line tracing with local variables and call stack depth
+* Execution stats (time, lines executed, functions called)
+* Helpful context around exceptions to make fixes clearer
+
+### 3) AI Explainer Module
+
+* Explanations generated from the static + dynamic results
+* Focuses on *why* an issue happened and how to prevent it
+* Ready to plug in real model APIs (OpenAI, Gemini)
+
+### 4) Command‑Line Interface (CLI)
+
+* Analyze a file or run a set of demo bugs
+* JSON or human readable output
+* Verbose logging when you want more detail
+* Optional API key input for future AI integration
+
+### 🧪 Tests & CI
+
+* Pytest suite (\~11 unit + integration tests)
+* \~40% coverage across core modules
+* GitHub Actions runs tests on every push
 
 ## 📦 Project Structure
 
@@ -59,11 +68,22 @@ lumina-ai-debugger/
 │   ├── syntax_error.py
 │   ├── type_error.py
 │   └── complexity_issue.py
-├── tests/                       # (Future automated tests)
-└── docs/                        # (Future documentation)
+├── tests/                        # Automated tests
+│   ├── __init__.py
+│   ├── test_static_analysis.py
+│   ├── test_dynamic_analysis.py
+│   ├── test_ai_explainer.py
+│   ├── test_cli.py
+│   └── test_integration.py
+├── .github/
+│   └── workflows/
+│       └── test.yml              # CI on push
+└── docs/                         # (Future documentation)
 ```
 
 ## 🛠️ Getting Started
+
+Requires Python 3.13+.
 
 ### Setup
 
@@ -77,7 +97,7 @@ pip install -r requirements.txt
 
 ### Available Commands
 
-Run commands from the project root, using the CLI interface in `src/main.py` as a module:
+Run from the project root using the CLI module:
 
 ```
 python -m src.main --help
@@ -101,13 +121,13 @@ optional arguments:
 
 ### Examples
 
-#### Run demo analysis on sample bugs:
+#### Run demo analysis on sample bugs
 
 ```
 python -m src.main --demo
 ```
 
-_Output (partial):_
+*Output (partial):*
 
 ```
 === Demo: syntax_error.py ===
@@ -121,13 +141,13 @@ Execution success: True
 AI Explanation: No major issues detected in your code.
 ```
 
-#### Analyze a specific Python file with JSON output:
+#### Analyze a specific file with JSON output
 
 ```
 python -m src.main --analyze sample_bugs/index_error.py --json
 ```
 
-_Sample JSON output:_
+*Sample JSON output:*
 
 ```
 {
@@ -167,30 +187,34 @@ _Sample JSON output:_
 }
 ```
 
+### Run Tests
 
-## 🛣️ Roadmap & Next Steps
+```
+pytest               # run all tests
+pytest --cov=src     # coverage
+pytest --cov=src --cov-report=html
+open htmlcov/index.html
+```
 
-- **Multifile project support** for advanced analysis  
-- **Real AI model integration** with API keys (OpenAI, Gemini)  
-- **Web UI development** for interactive debugging  
-- **Comprehensive automated testing** and CI/CD setup  
-- **Performance and security enhancements** for sandboxed execution  
+## 🛣️ Roadmap
 
+* Real AI model integration (Gemini) with env based API keys
+* Web UI (Flask) for interactive analysis
+* Multi file project support
+* Performance improvements and caching
+* Docker setup for deployment
 
 ## 👥 Contributing & Feedback
 
-This is an active student project. Contributions, suggestions, and bug reports are welcome!
+Active student project. Contributions, suggestions, and bug reports are welcome!
 
-1. Fork the repo  
-2. Create a feature branch (`git checkout -b feature/my-feature`)  
-3. Commit your changes  
-4. Open a Pull Request with detailed description  
-
+1. Fork the repo
+2. Create a feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (add tests when relevant)
+4. Open a Pull Request with a brief description
 
 ## 📜 License
 
 MIT License
 
-
 Thank you for exploring Lumina! Learn smarter debugging — understand the *why* behind bugs, not just the fix.
-
