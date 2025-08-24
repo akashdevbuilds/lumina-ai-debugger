@@ -1,8 +1,9 @@
 astroid
-radon
-pylint
-pytest
 docker
-requests
-jsonschema
 flask
+jsonschema
+pylint
+radon
+requests
+pytest>=7.0.0
+pytest-cov>=4.0.0
