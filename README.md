@@ -19,7 +19,7 @@ Lumina is an early stage prototype for students and developers who want to maste
   * Missing function docstrings / overly complex functions
 * Complexity metrics (cyclomatic complexity) to flag risky code
 * Variable usage tracker for potentially unused variables
-* Outputs in structured JSON or emoji‑rich console text
+* Outputs in structured JSON or emoji rich console text
 
 ### 2) Dynamic Analysis with Execution Tracing
 
@@ -219,4 +219,4 @@ Active student project. Contributions, suggestions, and bug reports are welcome!
 
 MIT License
 
-Thank you for exploring Lumina! Learn smarter debugging — understand the *why* behind bugs, not just the fix.
+Thank you for exploring Lumina! Learn smarter debugging ; understand the *why* behind bugs, not just the fix.
