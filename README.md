@@ -4,7 +4,7 @@ Learn to debug smarter with Lumina, an educational tool combining enhanced stati
 
 ## 🚀 Project Overview
 
-Lumina is an early‑stage prototype for students and developers who want to master debugging fundamentals. By combining static code analysis, runtime tracing, and AI driven explanations, Lumina goes beyond surface level fixes to provide clear, educational insights.
+Lumina is an early stage prototype for students and developers who want to master debugging fundamentals. By combining static code analysis, runtime tracing, and AI driven explanations, Lumina goes beyond surface level fixes to provide clear, educational insights.
 
 ## 🔍 Key Features
 
