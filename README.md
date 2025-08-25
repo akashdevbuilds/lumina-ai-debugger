@@ -12,14 +12,14 @@ Lumina is an early stage prototype for students and developers who want to maste
 
 * Advanced AST parsing for common bug patterns:
 
-  * Potential `IndexError` from out‑of‑bounds indexing
-  * Security risks like `eval()` usage
-  * Poor exception handling (e.g., bare `except:`)
-  * Debugging leftovers like empty `print()` statements
-  * Missing function docstrings / overly complex functions
-* Complexity metrics (cyclomatic complexity) to flag risky code
-* Variable usage tracker for potentially unused variables
-* Outputs in structured JSON or emoji rich console text
+  * Potential `IndexError` from out‑of‑bounds indexing.
+  * Security risks like `eval()` usage.
+  * Poor exception handling (e.g., bare `except:`).
+  * Debugging leftovers like empty `print()` statements.
+  * Missing function docstrings / overly complex functions.
+* Complexity metrics (cyclomatic complexity) to flag risky code.
+* Variable usage tracker for potentially unused variables.
+* Outputs in structured JSON or emoji rich console text.
 
 ### 2) Dynamic Analysis with Execution Tracing
 
@@ -30,22 +30,22 @@ Lumina is an early stage prototype for students and developers who want to maste
 
 ### 3) AI Explainer Module
 
-* Explanations generated from the static + dynamic results
-* Focuses on *why* an issue happened and how to prevent it
-* Ready to plug in real model APIs (OpenAI, Gemini)
+* Explanations generated from the static + dynamic results.
+* Focuses on *why* an issue happened and how to prevent it.
+* Ready to plug in real model APIs (OpenAI, Gemini).
 
 ### 4) Command‑Line Interface (CLI)
 
-* Analyze a file or run a set of demo bugs
-* JSON or human readable output
-* Verbose logging when you want more detail
-* Optional API key input for future AI integration
+* Analyze a file or run a set of demo bugs.
+* JSON or human readable output.
+* Verbose logging when you want more detail.
+* Optional API key input for future AI integration.
 
 ### 🧪 Tests & CI
 
-* Pytest suite (\~11 unit + integration tests)
-* \~40% coverage across core modules
-* GitHub Actions runs tests on every push
+* Pytest suite (\~11 unit + integration tests).
+* \~40% coverage across core modules.
+* GitHub Actions runs tests on every push.
 
 ## 📦 Project Structure
 
