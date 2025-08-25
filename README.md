@@ -23,10 +23,10 @@ Lumina is an early stage prototype for students and developers who want to maste
 
 ### 2) Dynamic Analysis with Execution Tracing
 
-* Safe, sandboxed code execution that captures runtime errors
-* Line by line tracing with local variables and call stack depth
-* Execution stats (time, lines executed, functions called)
-* Helpful context around exceptions to make fixes clearer
+* Safe, sandboxed code execution that captures runtime errors.
+* Line by line tracing with local variables and call stack depth.
+* Execution stats (time, lines executed, functions called).
+* Helpful context around exceptions to make fixes clearer.
 
 ### 3) AI Explainer Module
 
