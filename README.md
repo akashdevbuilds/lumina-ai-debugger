@@ -200,11 +200,11 @@ open htmlcov/index.html
 
 ## 🛣️ Roadmap
 
-* Real AI model integration (Gemini) with env based API keys
-* Web UI (Flask) for interactive analysis
-* Multi file project support
-* Performance improvements and caching
-* Docker setup for deployment
+* Real AI model integration (Gemini) with env based API keys.
+* Web UI (Flask) for interactive analysis.
+* Multi file project support.
+* Performance improvements and caching.
+* Docker setup for deployment.
 
 ## 👥 Contributing & Feedback
 
