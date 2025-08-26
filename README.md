@@ -198,7 +198,7 @@ pytest --cov=src --cov-report=html
 open htmlcov/index.html
 ```
 
-## 🛣️ Roadmap
+## 🛣️ Roadmap - Coming Soon 
 
 * Real AI model integration (Gemini) with env based API keys.
 * Web UI (Flask) for interactive analysis.
