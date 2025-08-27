@@ -34,7 +34,7 @@ Lumina is an early stage prototype for students and developers who want to maste
 * Focuses on *why* an issue happened and how to prevent it.
 * Ready to plug in real model APIs (OpenAI, Gemini).
 
-### 4) Command‑Line Interface (CLI)
+### 4) Command‑Line Interface
 
 * Analyze a file or run a set of demo bugs.
 * JSON or human readable output.
