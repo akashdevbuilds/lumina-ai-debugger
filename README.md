@@ -1,6 +1,6 @@
 # Lumina: AI Powered Bug Explainer
 
-Learn to debug smarter with Lumina, an educational tool combining enhanced static and dynamic code analysis with AI powered explanations to help developers and learners understand why bugs happen.
+Learn to debug smarter with Lumina, a tool combining enhanced static and dynamic code analysis with AI powered explanations to help developers and learners understand why bugs happen.
 
 ## 🚀 Project Overview
 
