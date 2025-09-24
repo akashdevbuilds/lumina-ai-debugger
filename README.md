@@ -1,4 +1,4 @@
-# Lumina: AI Powered Bug Explainer.
+# Lumina: AI Powered Bug Explainer
 
 Debug smarter with Lumina, a tool combining enhanced static and dynamic code analysis with AI powered explanations to help developers and learners understand why bugs happen.
 
@@ -198,7 +198,7 @@ pytest --cov=src --cov-report=html
 open htmlcov/index.html
 ```
 
-## 🛣️ Roadmap - Coming Soon 
+## 🛣️ Roadmap - Coming Soon!! 
 
 * Real AI model integration (Gemini) with env based API keys.
 * Web UI (Flask) for interactive analysis.
@@ -219,4 +219,3 @@ Active student project. Contributions, suggestions, and bug reports are welcome!
 
 MIT License
 
-Thank you for exploring Lumina! Learn smarter debugging ; understand the *why* behind bugs, not just the fix.
