@@ -1,4 +1,4 @@
-# Lumina: AI Powered Bug Explainer
+# Lumina - AI Powered Bug Explainer
 
 Debug smarter with Lumina, a tool combining enhanced static and dynamic code analysis with AI powered explanations to help developers and learners understand why bugs happen.
 
